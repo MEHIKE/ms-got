@@ -14,9 +14,11 @@ import javax.validation.constraints.Size;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @Entity
