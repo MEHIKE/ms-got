@@ -52,7 +52,7 @@ spec:
               key: database-port
         - name: MSGOT_DB
           valueFrom:
-            secretKeyRef:
+            configMapKeyRef:
               name: ms-got
               key: database-name
 
