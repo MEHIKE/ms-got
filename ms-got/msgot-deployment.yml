@@ -30,6 +30,11 @@ spec:
             configMapKeyRef:
               name: config
               key: service-port
+        - name: EUREKA_URI
+          valueFrom:
+            configMapKeyRef:
+              name: eureka
+              key: eureka-uri
         - name: POSTGRES_USER
           valueFrom:
             secretKeyRef:
@@ -55,4 +60,3 @@ spec:
             configMapKeyRef:
               name: ms-got
               key: database-name
-
