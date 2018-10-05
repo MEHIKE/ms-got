@@ -8,5 +8,5 @@ data:
   service-port: "8081"
   service-host: ms-got
   eureka-uri: "http://eureka:8061/eureka/"
-  database-name: "msgot"
+  database-name: msgot
 
