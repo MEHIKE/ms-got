@@ -1,0 +1,17 @@
+server:
+  port: 8081
+  
+spring:
+  application:
+    name: ms-got
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/MEHIKE/ms-got.git
+          skipSslValidation: true
+          
+          
+#spring.cloud.config.server.git.uri: file://${user.home}/config-repo
+          
+          

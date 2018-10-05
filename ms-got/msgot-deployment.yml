@@ -35,4 +35,24 @@ spec:
             secretKeyRef:
               name: postgresdb
               key: database-user
+        - name: POSTGRES_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: postgresdb
+              key: database-password
+        - name: POSTGRES_HOST
+          valueFrom:
+            configMapKeyRef:
+              name: postgresdb
+              key: database-host
+        - name: POSTGRES_PORT
+          valueFrom:
+            configMapKeyRef:
+              name: postgresdb
+              key: database-port
+        - name: MSGOT_DB
+          valueFrom:
+            secretKeyRef:
+              name: ms-got
+              key: database-name
 
