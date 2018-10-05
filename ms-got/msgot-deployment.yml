@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ms-got
+  labels:
+    app: ms-got
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ms-got
+  template:
+    metadata:
+      labels:
+        app: ms-got
+    spec:
+      containers:
+      - name: ms-got
+        image: mehike/ms-got:0.0.1
+        ports:
+        - containerPort: 8081
+        env:
+        - name: CONFIG_SERVICE_HOST
+          valueFrom:
+            configMapKeyRef:
+              name: config
+              key: service-host
+        - name: CONFIG_SERVICE_PORT
+          valueFrom:
+            configMapKeyRef:
+              name: config
+              key: service-port
+        - name: POSTGRES_USER
+          valueFrom:
+            secretKeyRef:
+              name: postgresdb
+              key: database-user
+

@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: ms-got
+  labels:
+    app: ms-got
+data:
+  service-port: "8081"
+  service-host: ms-got
+  eureka-uri: "http://eureka:8061/eureka/"
+
