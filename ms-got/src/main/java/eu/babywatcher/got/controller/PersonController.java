@@ -27,8 +27,8 @@ public class PersonController {
 	@Autowired
 	private PersonService personService;
 
-	@LogExecution
-	@LogRequest
+	//@LogExecution
+	//@LogRequest
 	@GetMapping
 	@ApiOperation(value = "View a list of all available person", response = Iterable.class)
 	@ApiResponses(value = {
