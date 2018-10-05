@@ -1,4 +1,5 @@
 FROM openjdk:8-jre-alpine
+VOLUME ["/tmp", "/tmp/config", "/tmp/logs"] 
 #FROM java:8
 ENV APP_FILE ms-got-0.0.1-SNAPSHOT.jar
 ENV APP_HOME /usr/apps
