@@ -24,20 +24,20 @@ import org.springframework.boot.jdbc.DataSourceBuilder;
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class ResourceServerConfiguration extends ResourceServerConfigurerAdapter {
 
-	//@Autowired
-	//private DataSource dataSource;
+	@Autowired
+	private DataSource dataSource;
 
 	@Value("${auth-server.url}")
 	private String authEndpoint;
 
-	/*@Bean
+	@Bean
 	public JdbcTokenStore tokenStore() {
 		return new JdbcTokenStore(dataSource);
-	}*/
+	}
 
-    @Bean
-    @ConfigurationProperties(prefix="oauth.datasource")
-    public DataSource oauthDataSource(){return DataSourceBuilder.create().build();} 
+    //@Bean
+    //@ConfigurationProperties(prefix="oauth.datasource")
+    //public DataSource oauthDataSource(){return DataSourceBuilder.create().build();} 
 	
 	@Override
 	public void configure(HttpSecurity http) throws Exception {
@@ -51,8 +51,8 @@ public class ResourceServerConfiguration extends ResourceServerConfigurerAdapter
 
 	@Override
 	public void configure(ResourceServerSecurityConfigurer resources) throws Exception {
-		TokenStore tokenStore=new JdbcTokenStore(oauthDataSource());
-		resources.resourceId("mw/adminapp").tokenStore(tokenStore);
+		//TokenStore tokenStore=new JdbcTokenStore(oauthDataSource());
+		resources.resourceId("mw/adminapp").tokenStore(tokenStore());
 	}
 
 	@Bean
